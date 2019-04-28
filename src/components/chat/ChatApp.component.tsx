@@ -8,7 +8,7 @@ export const ChatAppComponent: React.FC = () => {
   return (
     <>
       <StyledWrapper>
-        <StyledHead>ciao</StyledHead>
+        <StyledHead>CHAT</StyledHead>
         <ChatWrapper>
           <RoomListerContainer />
           <MessageApp>
@@ -28,6 +28,8 @@ const StyledWrapper = styled.div`
 
 const StyledHead = styled.div`
   background: #506086;
+  padding: 20px;
+  color: #fff;
 `
 
 const ChatWrapper = styled.div`

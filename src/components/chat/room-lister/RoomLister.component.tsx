@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const RoomListerComponent: React.FC = () => {
   return (
     <StyledRoomLister>
-      <div className="room-group">
+      <FormGroup>
         <h3>Utenti</h3>
         <ul>
           <li>ciao</li>
@@ -12,8 +12,8 @@ export const RoomListerComponent: React.FC = () => {
           <li>ciao</li>
           <li>ciao</li>
         </ul>
-      </div>
-      <div className="room-group">
+      </FormGroup>
+      <FormGroup>
         <h3>Utenti</h3>
         <ul>
           <li>ciao</li>
@@ -21,7 +21,7 @@ export const RoomListerComponent: React.FC = () => {
           <li>ciao</li>
           <li>ciao</li>
         </ul>
-      </div>
+      </FormGroup>
     </StyledRoomLister>
   );
 }
@@ -29,4 +29,8 @@ export const RoomListerComponent: React.FC = () => {
 const StyledRoomLister = styled.div`
   overflow: auto;
   width: 100px;
+`
+
+const FormGroup = styled.div `
+  padding: 10px 15px;
 `

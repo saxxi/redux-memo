@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+
+import { withAutcompleteOff } from '../../../utils/hoc/Input'
 
 interface Props {
   sendMessage: (message: string) => void;
@@ -18,7 +20,7 @@ export const MessageInputComponent: React.FC<Props> = (props: Props) => {
   }
   return (
     <StyledForm onSubmit={onSubmit}>
-      <StyledInput name="inpt-chat" type="text"
+      <InputBox type="text"
         placeholder="Type here..."
         onChange={onChange}
         value={msg}
@@ -35,16 +37,15 @@ const StyledForm = styled.form`
   display: flex;
   padding: 10px;
   background: #ccc;
-
 `
 
-const StyledInput = styled.input`
+const InputBox = withAutcompleteOff(styled.input`
   flex: 1;
   border: none;
   border-radius: 5px 0px 0px 5px;
   padding: 10px 15px;
   font-size: 0.8em;
-`
+`)
 
 const StyledButton = styled.button`
   border: none;

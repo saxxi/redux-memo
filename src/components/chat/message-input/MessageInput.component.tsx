@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { withAutcompleteOff } from '../../../utils/hoc/Input'
+import { withAutcompleteOff } from '../../utils/hoc/Input'
 
 interface Props {
   sendMessage: (message: string) => void;

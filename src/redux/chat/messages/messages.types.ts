@@ -1,5 +1,6 @@
 export type Message = {
-  msg: string
+  id: string,
+  msg: string,
 }
 
 export const actionIds = {

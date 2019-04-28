@@ -5,21 +5,18 @@ export const RoomListerComponent: React.FC = () => {
   return (
     <StyledRoomLister>
       <FormGroup>
-        <h3>Utenti</h3>
+        <h3>Users</h3>
         <ul>
-          <li>ciao</li>
-          <li>ciao</li>
-          <li>ciao</li>
-          <li>ciao</li>
+          <li>Pierre</li>
+          <li>Philippa</li>
         </ul>
       </FormGroup>
       <FormGroup>
-        <h3>Utenti</h3>
+        <h3>Groups</h3>
         <ul>
-          <li>ciao</li>
-          <li>ciao</li>
-          <li>ciao</li>
-          <li>ciao</li>
+          <li>Family</li>
+          <li>Friends</li>
+          <li>Work</li>
         </ul>
       </FormGroup>
     </StyledRoomLister>

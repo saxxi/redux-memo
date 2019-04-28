@@ -17,7 +17,6 @@ export const MessageListerComponent: React.FC<Props> = ({messages = []}) => (
 )
 
 const StyledMessageLister = styled(ScrollToBottom)`
-  background: #f2f3f7;
   flex: 1;
   overflow: auto;
   padding: 10px 15px;

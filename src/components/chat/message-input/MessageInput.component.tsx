@@ -36,7 +36,6 @@ const StyledForm = styled.form`
   padding: 10px 15px;
   display: flex;
   padding: 10px;
-  background: #ccc;
 `
 
 const InputBox = withAutcompleteOff(styled.input`

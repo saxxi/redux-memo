@@ -43,4 +43,5 @@ const MessageApp = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  background: #f2f3f7;
 `;

@@ -5,7 +5,6 @@ import { ChatAppComponent } from './ChatApp.component';
 
 const mapStateToProps = (state: State) => ({
   messagesState: state.messagesState,
-  abc: state,
 });
 
 const mapDispatchToProps = (dispatch) => ({

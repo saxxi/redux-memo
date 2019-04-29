@@ -3,7 +3,7 @@ import { State } from '../../../redux/reducers';
 import { MessageListerComponent } from './MessageLister.component';
 
 const mapStateToProps = (state: State) => ({
-  messages: state.messagesState
+  messagesState: state.messagesState
 });
 
 const mapDispatchToProps = (dispatch) => ({

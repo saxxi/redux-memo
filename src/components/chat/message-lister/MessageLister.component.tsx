@@ -2,15 +2,15 @@ import * as React from 'react';
 import styled from 'styled-components';
 import ScrollToBottom from 'react-scroll-to-bottom';
 
-import { Message } from '../../../redux/chat/messages/messages.types';
+import { MessagesState } from '../../../redux/chat/messages/mssages.reducer';
 
 type Props = {
-  messages: Message[]
+  messagesState: MessagesState
 }
 
-export const MessageListerComponent: React.FC<Props> = ({messages = []}) => (
+export const MessageListerComponent: React.FC<Props> = ({messagesState}) => (
   <StyledMessageLister>
-    {messages.map(message => (
+    {messagesState.messages.map(message => (
       <div key={message.id}>{message.msg}</div>
     ))}
   </StyledMessageLister>

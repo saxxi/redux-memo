@@ -3,10 +3,10 @@ import { Provider } from 'react-redux';
 import './App.css'
 
 import store from '../store';
-import { ChatAppComponent } from './chat/ChatApp.component';
+import { ChatAppContainer } from './chat/ChatApp.container';
 
 export const App: React.FC = () => (
   <Provider store={store}>
-    <ChatAppComponent />
+    <ChatAppContainer />
   </Provider>
 )

@@ -9,7 +9,7 @@ export const sendMessage = (msg: string): Promise<Message> => {
         msg,
       };
       resolve(message)
-    }, 500)
+    }, 300)
   });
 
   return promise;

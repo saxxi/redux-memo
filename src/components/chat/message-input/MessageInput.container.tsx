@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { State } from '../../../redux/reducers';
 import { MessageInputComponent } from './MessageInput.component';
-import { sendMessageStartAction } from '../../../redux/chat/messages/messages.actions';
+import { sendMessageAsync } from '../../../redux/chat/messages/messages.actions';
 
-const mapStateToProps = (state : State) => ({
+const mapStateToProps = (state: State) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  sendMessage: (message: string) => dispatch(sendMessageStartAction(message))
+  sendMessage: (message: string) => dispatch(sendMessageAsync.request(message))
 })
 
 export const MessageInputContainer = connect(

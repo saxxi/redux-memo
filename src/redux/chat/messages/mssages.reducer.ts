@@ -1,16 +1,40 @@
-import { BaseAction } from '../../base-types';
-import { actionIds, Message } from "./messages.types";
+import { createReducer } from "typesafe-actions";
 
-export type MessagesState = Message[];
+import { Message } from "./messages.types";
+import { sendMessageAsync } from "./messages.actions";
 
-export const messagesReducer = (state: MessagesState = [], action: BaseAction) => {
-  switch (action.type) {
-    case actionIds.ADD_MESSAGE:
-      return handleAddMessage(state, action.payload);
-  }
-  return state;
+export type MessagesState = {
+  loading: boolean
+  messages: Message[]
+  error?: string
 }
 
-const handleAddMessage = (state: MessagesState, message: Message): MessagesState => (
-  [...state, message]
-);
+export const initialState: MessagesState = {
+  loading: false,
+  messages: [],
+  error: null,
+}
+
+export const messagesReducer = createReducer(initialState)
+  .handleAction(sendMessageAsync.request, (state, action: any) => handleSendMessageRequest(state))
+  .handleAction(sendMessageAsync.success, (state, action: any) => handleSendMessageSuccess(state, action.payload))
+  .handleAction(sendMessageAsync.failure, (state, action: any) => handleSendMessageFail(state, action.payload))
+
+const handleSendMessageRequest = (state: MessagesState): MessagesState => ({
+  ...state,
+  loading: true,
+  error: null,
+})
+
+const handleSendMessageSuccess = (state: MessagesState, message: Message): MessagesState => ({
+  ...state,
+  loading: false,
+  messages: [...state.messages, message],
+  error: null,
+});
+
+const handleSendMessageFail = (state: MessagesState, error: string): MessagesState => ({
+  ...state,
+  loading: false,
+  error: error,
+});

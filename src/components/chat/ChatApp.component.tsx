@@ -19,16 +19,15 @@ export const ChatAppComponent: React.FC<Props> = ({messagesState}) => (
       <MessageApp>
         <MessageListerContainer />
         <MessageInputContainer />
+        <FillLoading loading={messagesState.loading} />
       </MessageApp>
     </ChatWrapper>
-    <FillLoading loading={messagesState.loading} />
   </StyledWrapper>
 )
 
 const StyledWrapper = styled.div`
   width: 400px;
   margin: 20px auto;
-  position: relative;
 `
 
 const StyledHead = styled.div`
@@ -49,4 +48,5 @@ const MessageApp = styled.div`
   flex-direction: column;
   flex: 1;
   background: #f2f3f7;
+  position: relative;
 `;

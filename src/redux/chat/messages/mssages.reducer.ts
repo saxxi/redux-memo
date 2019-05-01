@@ -12,7 +12,7 @@ export type MessagesState = {
 export const initialState: MessagesState = {
   loading: false,
   messages: [],
-  error: null,
+  error: undefined,
 }
 
 export const messagesReducer = createReducer(initialState)
@@ -23,14 +23,14 @@ export const messagesReducer = createReducer(initialState)
 const handleSendMessageRequest = (state: MessagesState): MessagesState => ({
   ...state,
   loading: true,
-  error: null,
+  error: undefined,
 })
 
 const handleSendMessageSuccess = (state: MessagesState, message: Message): MessagesState => ({
   ...state,
   loading: false,
   messages: [...state.messages, message],
-  error: null,
+  error: undefined,
 });
 
 const handleSendMessageFail = (state: MessagesState, error: string): MessagesState => ({

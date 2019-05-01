@@ -1,3 +1,4 @@
+```
 function saveScore (score) {
   return dispatch => {
     dispatch({
@@ -33,3 +34,4 @@ it('Save score posts the score to the server and dispatches a success action.', 
   server.respond()
   server.restore()
 })
+```

@@ -5,7 +5,7 @@ import { RoomListerComponent } from './RoomLister.component';
 const mapStateToProps = (state: State) => ({
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = () => ({
 });
 
 export const RoomListerContainer = connect(

@@ -10,7 +10,7 @@ interface Props {
 
 export const MessageInputComponent: React.FC<Props> = (props: Props) => {
   const [msg, setMsg] = useState('');
-  const onSubmit = e => {
+  const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     props.sendMessage(msg);
     setMsg('');

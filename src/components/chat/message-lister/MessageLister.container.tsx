@@ -6,7 +6,7 @@ const mapStateToProps = (state: State) => ({
   messagesState: state.messagesState
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = () => ({
 });
 
 export const MessageListerContainer = connect(

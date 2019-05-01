@@ -30,3 +30,7 @@ html, body {
 * {
   box-sizing: border-box;
 }
+
+a {
+  cursor: pointer;
+}

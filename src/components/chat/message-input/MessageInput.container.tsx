@@ -1,8 +1,9 @@
-import { connect } from 'react-redux';
-import { State } from '../../../redux/reducers';
-import { MessageInputComponent } from './MessageInput.component';
-import { sendMessageAsync } from '../../../redux/chat/messages/messages.actions';
 import { Dispatch } from 'react';
+import { connect } from 'react-redux';
+
+import { State } from '../../../redux/reducers';
+import { sendMessageAsync } from '../../../redux/chat/messages/messages.actions';
+import { MessageInputComponent } from './MessageInput.component';
 
 const mapStateToProps = (state: State) => ({
 })

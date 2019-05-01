@@ -8,7 +8,7 @@ const mapStateToProps = (state: State) => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
-  sendMessage: (message: string) => dispatch(sendMessageAsync.request(message))
+  sendMessage: (msg: string) => dispatch(sendMessageAsync.request(msg))
 })
 
 export const MessageInputContainer = connect(

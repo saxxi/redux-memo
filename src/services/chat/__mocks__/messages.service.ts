@@ -1,7 +1,7 @@
 import { Message } from "../../../redux/chat/messages/messages.types";
 
 export const sendMessage = (msg: string): Promise<Message> => {
-  const message = {
+  const message: Message = {
     id: 'msg-123',
     msg
   }

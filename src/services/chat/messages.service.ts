@@ -13,4 +13,4 @@ export const sendMessage = (msg: string): Promise<Message> => {
   });
 
   return promise;
-}
+};

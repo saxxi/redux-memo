@@ -2,19 +2,8 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import { sendMessage } from '../../../services/chat/messages.service';
 import { sendMessageAsync, SEND_MESSAGE_REQUEST } from './messages.actions';
 
-import { User } from '../../user/user.types'
-
 export function* requestSendMessage(action: ReturnType<typeof sendMessageAsync.request>) {
-  // TODO: retrieve these from state:
-  const from: User = {
-    id: 'me-123-123',
-    fullname: 'Me is here',
-  }
-  const to: User = {
-    id: 'pierre-123-123',
-    fullname: 'pierre-123-123',
-  }
-  const message = yield call(sendMessage, from, to, action.payload);
+  const message = yield call(sendMessage, action.payload);
   try {
     yield put(sendMessageAsync.success(message));
   } catch (err) {

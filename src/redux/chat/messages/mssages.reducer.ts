@@ -5,13 +5,13 @@ import { sendMessageAsync } from "./messages.actions";
 
 export type MessagesState = {
   loading: boolean
-  messages: Message[]
+  messages: { [id: string]: Message[] }
   error?: string
 }
 
 export const initialState: MessagesState = {
   loading: false,
-  messages: [],
+  messages: {},
   error: undefined,
 }
 
@@ -26,12 +26,17 @@ const handleSendMessageRequest = (state: MessagesState): MessagesState => ({
   error: undefined,
 })
 
-const handleSendMessageSuccess = (state: MessagesState, message: Message): MessagesState => ({
-  ...state,
-  loading: false,
-  messages: [...state.messages, message],
-  error: undefined,
-});
+const handleSendMessageSuccess = (state: MessagesState, message: Message): MessagesState => {
+  return {
+    ...state,
+    loading: false,
+    messages: {
+      ...state.messages,
+      [message.to.id]: [...state.messages[message.to.id] || [], message]
+    },
+    error: undefined,
+  }
+};
 
 const handleSendMessageFail = (state: MessagesState, error: string): MessagesState => ({
   ...state,

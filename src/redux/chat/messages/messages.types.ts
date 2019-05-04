@@ -1,14 +1,12 @@
 import { User } from '../../user/user.types'
+import { Channel } from '../channels/channels.types';
 
 export type StartMessage = {
   from: User,
-  to: User,
+  to: Channel,
   msg: string,
 }
 
-export type Message = {
-  from: User,
-  to: User,
+export type Message = StartMessage & {
   id: string,
-  msg: string,
 }

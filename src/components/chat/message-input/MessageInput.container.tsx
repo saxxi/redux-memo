@@ -7,8 +7,8 @@ import { MessageInputComponent } from './MessageInput.component';
 import { StartMessage } from '../../../redux/chat/messages/messages.types';
 
 const mapStateToProps = (state: State) => ({
-  userState: state.userState,
-  channelstate: state.channelState,
+  currentUser: state.userState.user,
+  selectedChannel: state.channelState.selected,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({

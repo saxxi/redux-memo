@@ -4,12 +4,12 @@ import styled from 'styled-components';
 
 import { withAutcompleteOff } from '../../utils/hoc/Input'
 import { StartMessage } from '../../../redux/chat/messages/messages.types';
-import { ChannelState } from '../../../redux/chat/channels/channels.reducer';
-import { UserState } from '../../../redux/user/user.reducer';
+import { Channel } from '../../../redux/chat/channels/channels.types';
+import { User } from '../../../redux/user/user.types';
 
 interface Props {
-  userState: UserState,
-  channelstate: ChannelState,
+  currentUser: User
+  selectedChannel?: Channel
   sendMessage: (message: StartMessage) => void;
 }
 
@@ -17,10 +17,10 @@ export const MessageInputComponent: React.FC<Props> = (props: Props) => {
   const [msg, setMsg] = useState('');
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!props.channelstate.selected) return
+    if (!props.selectedChannel) return
     const startMessage: StartMessage = {
-      from: props.userState.user,
-      to: props.channelstate.selected,
+      from: props.currentUser,
+      to: props.selectedChannel,
       msg,
     }
     props.sendMessage(startMessage);

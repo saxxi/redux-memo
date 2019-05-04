@@ -14,7 +14,7 @@ type Props = {
 export const ChannelsListerComponent: React.FC<Props> = ({channelstate, loadChannels, selectChannel}) => {
   useEffect(() => {
     loadChannels();
-  }, []);
+  }, [loadChannels]);
 
   return (
     <StyledChannelsLister>

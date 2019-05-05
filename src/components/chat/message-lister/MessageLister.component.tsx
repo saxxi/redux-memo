@@ -11,7 +11,7 @@ type Props = {
 export const MessageListerComponent: React.FC<Props> = ({channelMessanges}) => (
   <StyledMessageLister>
     {channelMessanges && channelMessanges.map(message => (
-      <div key={message.id}>{message.msg}</div>
+      <div data-msg key={message.id}>{message.msg}</div>
     ))}
   </StyledMessageLister>
 )

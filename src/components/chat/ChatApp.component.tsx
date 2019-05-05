@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import { MessagesState } from '../../redux/chat/messages/mssages.reducer';
-import { FillLoading } from '../utils/loading/Loading.component';
+import { FillLoading } from '../utils/loading/FillLoading.component';
 import { ChannelsListerContainer } from './channel-lister/ChannelsLister.container'
 import { MessageListerContainer } from './message-lister/MessageLister.container';
 import { MessageInputContainer } from './message-input/MessageInput.container';
@@ -15,10 +15,10 @@ type Props = {
 
 export const ChatAppComponent: React.FC<Props> = ({channelState, messagesState}) => (
   <StyledWrapper>
-    <StyledHead>CHAT</StyledHead>
+    <StyledHead data-head>CHAT</StyledHead>
     <ChatWrapper>
       <ChannelsListerContainer />
-      <MessageApp>
+      <MessageApp data-message-app>
         {channelState.selected && (
           <>
             <MessageListerContainer />

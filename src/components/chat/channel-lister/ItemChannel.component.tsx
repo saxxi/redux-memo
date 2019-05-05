@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Channel } from "../../../redux/chat/channels/channels.types";
+import { Channel } from '../../../redux/chat/channels/channels.types';
 import styled from 'styled-components';
 
 type Props = {

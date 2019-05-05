@@ -1,7 +1,7 @@
-import { createReducer } from "typesafe-actions";
+import { createReducer } from 'typesafe-actions';
 
-import { Channel } from "./channels.types";
-import { loadChannelsAsync, selectChannel } from "./channels.actions";
+import { Channel } from './channels.types';
+import { loadChannelsAsync, selectChannel } from './channels.actions';
 
 export type ChannelState = {
   loading: boolean

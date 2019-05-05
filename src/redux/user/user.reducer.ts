@@ -1,6 +1,6 @@
-import { createReducer } from "typesafe-actions";
+import { createReducer } from 'typesafe-actions';
 
-import { User } from "./user.types";
+import { User } from './user.types';
 
 export type UserState = {
   user: User

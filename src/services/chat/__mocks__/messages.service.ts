@@ -1,9 +1,9 @@
-import { Message } from "../../../redux/chat/messages/messages.types";
+import { Message, StartMessage } from '../../../redux/chat/messages/messages.types';
 
-// export const sendMessage = (msg: string): Promise<Message> => {
-//   const message: Message = {
-//     id: 'msg-123',
-//     msg
-//   }
-//   return Promise.resolve(message);
-// }
+export const sendMessage = (startMessage: StartMessage): Promise<Message> => {
+  const message: Message = {
+    ...startMessage,
+    id: 'msg-123',
+  }
+  return Promise.resolve(message);
+}

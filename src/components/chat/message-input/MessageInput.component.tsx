@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { withAutcompleteOff } from '../../utils/hoc/Input'
@@ -32,6 +31,7 @@ export const MessageInputComponent: React.FC<Props> = (props: Props) => {
   return (
     <StyledForm onSubmit={onSubmit}>
       <InputBox type="text"
+        autoFocus
         placeholder="Type here..."
         onChange={onChange}
         value={msg}

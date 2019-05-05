@@ -1,7 +1,7 @@
-import { createReducer } from "typesafe-actions";
+import { createReducer } from 'typesafe-actions';
 
-import { Message } from "./messages.types";
-import { sendMessageAsync } from "./messages.actions";
+import { Message } from './messages.types';
+import { sendMessageAsync } from './messages.actions';
 
 export type MessagesState = {
   loading: boolean

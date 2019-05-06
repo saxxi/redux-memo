@@ -20,6 +20,6 @@ type Props = {
 
 export const FillLoading: React.FC<Props> = ({loading}) => (
   <>
-    {loading && <FillBg data-loader>Loading...</FillBg>}
+    {loading && <FillBg>Loading...</FillBg>}
   </>
 )

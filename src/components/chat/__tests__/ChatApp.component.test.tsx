@@ -1,19 +1,25 @@
-import * as React from 'react';
-import { mount } from '../../../enzyme';
-import { ChatAppComponent } from '../ChatApp.component';
+import React from 'react';
+import { setUp } from '../../../enzyme';
 import { MessagesState } from '../../../redux/chat/messages/mssages.reducer';
 import { ChannelState } from '../../../redux/chat/channels/channels.reducer';
 import { Channel } from '../../../redux/chat/channels/channels.types';
-import store from '../../../store';
-import { Provider } from 'react-redux';
 import { Message } from '../../../redux/chat/messages/messages.types';
-import { ReactWrapper } from 'enzyme';
+import { ShallowWrapper } from 'enzyme';
 
 describe('ChatAppComponent', () => {
   const selectedChannel: Channel = { id: '2', fullname: 'Claire' };
-  let channelState: ChannelState;
-  let messagesState: MessagesState;
-  let chatComp: ReactWrapper;
+  const channelState: ChannelState = {
+    loading: false,
+    channels: [],
+    // selected: undefined,
+    // error: undefined,
+  };
+  const messagesState: MessagesState = {
+    loading: false,
+    messages: {},
+    // error: undefined,
+  };
+  let chatComp: ShallowWrapper;
   const msg1: Message = {
     from: { id: '1', fullname: 'Me' },
     to: selectedChannel,
@@ -21,48 +27,38 @@ describe('ChatAppComponent', () => {
     id: 'msg-1',
   };
 
-  beforeEach(() => {
-    channelState = {
-      loading: false,
-      channels: [],
-      // selected: undefined,
-      // error: undefined,
-    };
-    messagesState = {
-      loading: false,
-      messages: {},
-      // error: undefined,
-    };
-  });
-
-  const mountChatComp = () => mount(
-    <Provider store={store}>
-      <ChatAppComponent channelState={channelState} messagesState={messagesState} />
-    </Provider>
-  );
-
   it('renders', () => {
-    chatComp = mountChatComp()
+    chatComp = setUp()
     expect(chatComp.find('[data-head]').at(0).text()).toEqual('CHAT');
     expect(chatComp.find('[data-loader]')).toHaveLength(0)
   });
 
   it('displays as loading', () => {
-    channelState.selected = selectedChannel;
-    messagesState.loading = true;
-    chatComp = mountChatComp();
-    expect(chatComp.find('[data-loader]').at(0).text()).toContain('Loading...');
+    chatComp = setUp({
+      channelState: {
+        ...channelState,
+        selected: selectedChannel,
+      },
+      messagesState: {
+        ...messagesState,
+        loading: true,
+      },
+    });
+    expect(chatComp.find('[data-loader]').at(0).prop('loading')).toBeTruthy()
   });
 
-  // it('displays', () => {
-  //   channelState.selected = selectedChannel
-  //   messagesState.messages[selectedChannel.id] = [msg1]
-  //   chatComp = mountChatComp();
-  //   expect(chatComp.find('[data-msg]').map((node: any) => node.text())).toEqual(['First!', 'Second!']);
-  //   // expect(chatComp.find('[data-message-app]').children()).toHaveLength(0);
-  // })
-
-  // it('', () => {
+  // chatComp = setUp({
+  //   channelState: {
+  //     ...channelState,
+  //     selected: selectedChannel,
+  //   },
+  //   messagesState: {
+  //     ...messagesState,
+  //     messages: {
+  //       ...messagesState.messages,
+  //       [selectedChannel.id]: [msg1],
+  //     },
+  //   },
   // });
 
 })

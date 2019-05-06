@@ -23,7 +23,7 @@ export const ChatAppComponent: React.FC<Props> = ({channelState, messagesState})
           <>
             <MessageListerContainer />
             <MessageInputContainer />
-            <FillLoading loading={messagesState.loading} />
+            <FillLoading data-loader loading={messagesState.loading} />
           </>
         )}
       </MessageApp>

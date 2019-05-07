@@ -16,7 +16,7 @@ export const initialState: MessagesState = {
 }
 
 export const messagesReducer = createReducer(initialState)
-  .handleAction(sendMessageAsync.request, (state, action: any) => handleSendMessageRequest(state))
+  .handleAction(sendMessageAsync.request, (state) => handleSendMessageRequest(state))
   .handleAction(sendMessageAsync.success, (state, action: any) => handleSendMessageSuccess(state, action.payload))
   .handleAction(sendMessageAsync.failure, (state, action: any) => handleSendMessageFail(state, action.payload))
 
